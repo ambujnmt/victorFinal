@@ -94,7 +94,7 @@ const TroubleshootingBox: React.FC<{ code: string }> = ({ code }) => {
                             href={consoleLink} 
                             target="_blank" 
                             rel="noreferrer"
-                            className="w-full py-4 bg-[rgb(255,117,93)] text-white rounded-2xl flex items-center justify-center font-black text-xs uppercase tracking-widest shadow-lg hover:brightness-110 transition-all border-b-4 border-hey-church-orange-700 active:border-b-0 active:translate-y-1"
+                            className="w-full py-4 bg-[rgb(255,117,93)] text-white rounded-2xl flex items-center justify-center font-black text-xs uppercase tracking-widest shadow-lg hover:brightness-110 transition-all border-b-4 border-[#E85A37] active:border-b-0 active:translate-y-1"
                         >
                             Open Firebase Console <ExternalLink size={16} className="ml-2"/>
                         </a>

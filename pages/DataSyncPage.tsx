@@ -45,7 +45,7 @@ const DataSyncPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[rgb(19,54,102)] flex flex-col items-center justify-center p-4 text-white">
-            <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center my-4 border border-hey-church-orange-900 max-w-2xl w-full">
+            <div className="bg-gray-800 p-8 rounded-xl shadow-lg text-center my-4 border border-[#2E1C17] max-w-2xl w-full">
                 <RefreshCw size={40} className="mx-auto text-[rgb(255_152_43)] mb-4" />
                 <h1 className="text-2xl font-bold text-white">Database Sync Required</h1>
                 <p className="text-gray-400 mt-2">

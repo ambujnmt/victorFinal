@@ -156,7 +156,7 @@ const OnboardingPage: React.FC = () => {
                                     className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex justify-between items-center group ${
                                         isSelected 
                                         ? 'bg-[rgb(255_117_93/0.2)] border-[rgb(255_117_93)]' 
-                                        : 'bg-gray-800 border-gray-700 hover:border-hey-church-orange-700'
+                                        : 'bg-gray-800 border-gray-700 hover:border-[#E85A37]'
                                     }`}
                                 >
                                     <span className="font-bold text-lg">{label}</span>
