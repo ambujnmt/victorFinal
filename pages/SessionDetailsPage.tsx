@@ -89,7 +89,7 @@ const QuizCard: React.FC<{
                 })}
             </div>
             {isRight && question.explanation && (
-                <div className="mt-5 bg-gradient-to-r from-hey-church-orange-900/30 to-[rgb(251_191_36/0.1)] border border-[rgb(251_191_36/0.2)] rounded-xl p-4 animate-in fade-in zoom-in duration-500">
+                <div className="mt-5 bg-gradient-to-r from-[#2E1C17]/30  to-[rgb(251_191_36/0.1)] border border-[rgb(251_191_36/0.2)] rounded-xl p-4 animate-in fade-in zoom-in duration-500">
                     <p className="text-[10px] font-black text-[rgb(251_191_36)] uppercase tracking-widest flex items-center mb-2">
                         <Lightbulb size={12} className="mr-1.5" /> RECAP & INSIGHT
                     </p>
@@ -283,7 +283,7 @@ const SessionDetailsPage: React.FC = () => {
                               {session.bibleVerses.map((verse, idx) => (
                                   <div key={idx} className="bg-black/20 p-4 rounded-xl border border-white/5">
                                       <div className="flex justify-between items-center mb-2">
-                                          <span className="font-bold text-hey-church-orange-300 text-sm">{verse.reference}</span>
+                                          <span className="font-bold text-[#FFB86C] text-sm">{verse.reference}</span>
                                           <a 
                                             href={`https://www.bible.com/bible/111/${verse.reference.replace(/\s/g, '+')}`} 
                                             target="_blank" 

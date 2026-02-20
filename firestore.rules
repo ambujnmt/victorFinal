@@ -55,12 +55,29 @@ service cloud.firestore {
       allow create, delete: if isAdmin() || isSignedIn();
     }
 
-    // --- Posts (Community Feed) ---
-    match /posts/{postId} {
-      allow read: if true;
-      allow create: if isSignedIn();
-      allow update, delete: if resource.data.user.id == request.auth.uid || isAdmin();
-    }
+match /posts/{postId} {
+
+  allow read: if true;
+
+  allow create: if request.auth != null;
+
+  allow update: if request.auth != null;
+
+  allow delete: if isAdmin() ||
+    (request.auth != null &&
+     resource.data.user.id == request.auth.uid);
+}
+
+allow update: if request.auth != null &&
+  (
+    request.resource.data.comments != resource.data.comments ||
+    request.resource.data.reactions != resource.data.reactions
+  );
+
+  allow delete: if isAdmin() ||
+    (request.auth != null &&
+     resource.data.user.id == request.auth.uid);
+}
 
     // --- Hey Fams ---
     match /heyFams/{famId} {

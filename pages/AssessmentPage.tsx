@@ -218,7 +218,7 @@ const AssessmentPage: React.FC = () => {
                             {feedback.split('\n').map((p, i) => p.trim() ? (
                                 <p key={i} className="mb-3">
                                     {p.split('**').map((part, j) => j % 2 === 1 ? (
-                                        <strong key={j} className="text-hey-church-orange-700 font-black">{part}</strong>
+                                        <strong key={j} className="text-[#E85A37] font-black">{part}</strong>
                                     ) : part)}
                                 </p>
                             ) : null)}

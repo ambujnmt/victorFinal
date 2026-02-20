@@ -240,9 +240,9 @@ const HomePage: React.FC = () => {
                   <Compass className="text-white" size={28} />
               </div>
               <div>
-                  <h3 className="font-black text-white text-xl leading-none tracking-tight">Faith check</h3>
+                  <h3 className="font-black text-white text-xl leading-none tracking-tight"> {t('home.faithcheck')}</h3>
                   <p className="text-white/80 text-[10px] mt-2 font-black uppercase tracking-[0.2em]">
-                    Visualize your growth map
+                    {t('home.Visualizeyourgrowthmap')}
                   </p>
               </div>
           </div>
@@ -276,7 +276,7 @@ const HomePage: React.FC = () => {
 
                   <div className="mb-6 pl-4 border-l-[3px] border-[rgb(251_191_36)] relative">
                       <p className="text-lg md:text-xl font-medium text-white leading-relaxed font-serif opacity-95">
-                          "{t(spiritSnack.verseKey)}"
+                          {t(spiritSnack.verseKey)}
                       </p>
                   </div>
 
@@ -285,7 +285,7 @@ const HomePage: React.FC = () => {
                         onClick={() => setShowGuidedPrayer(true)} 
                         className="bg-transparent border-2 border-[rgb(251_191_36/0.3)] text-[rgb(251_191_36)] px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 hover:bg-[rgb(251_191_36/0.1)] shadow-xl"
                     >
-                        Let's pray
+                       {t('home.letsPray')}
                     </button>
                     
                     <p className="text-base font-black text-[rgb(251_191_36)] uppercase tracking-tighter drop-shadow-md pb-1">

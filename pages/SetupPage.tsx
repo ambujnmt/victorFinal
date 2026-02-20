@@ -51,7 +51,7 @@ const SetupPage: React.FC<{ error?: string, source?: string }> = ({ error, sourc
         
          <div className="space-y-4 text-sm text-gray-300 bg-gray-900/50 p-4 rounded-lg">
             <p className="font-bold text-base text-[rgb(251_191_36)]">1. Apply Your Configuration</p>
-            <p>Edit the <code className="bg-gray-700 p-1 rounded text-hey-church-orange-300">index.html</code> file in the project root and replace the <code className="bg-gray-700 p-1 rounded">HEYCHURCH_APP_CONFIG</code> with your values.</p>
+            <p>Edit the <code className="bg-gray-700 p-1 rounded text-[#FFB86C]">index.html</code> file in the project root and replace the <code className="bg-gray-700 p-1 rounded">HEYCHURCH_APP_CONFIG</code> with your values.</p>
             <pre className="bg-black/50 p-3 rounded-md text-xs overflow-x-auto text-gray-400">
                 <code>{configHtmlExample}</code>
             </pre>

@@ -168,6 +168,7 @@ export const addPost = async (post: Omit<Post, 'id'>) => {
 export const addCommentToPost = async (postId: string, comment: Comment) => {
     const { db } = getFirebaseServices();
     const postRef = doc(db, 'posts', postId);
+
     await updateDoc(postRef, {
         comments: arrayUnion(comment)
     });

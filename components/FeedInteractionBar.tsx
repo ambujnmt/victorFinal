@@ -76,15 +76,25 @@ export const FeedInteractionBar: React.FC<FeedInteractionBarProps> = ({ post, cu
     const handleSendComment = async () => {
   if (!commentText.trim()) return;
 
-  const newComment = {
-    text: commentText,
-    timestamp: new Date().toISOString(),
-    user: {
-      id: currentUser.id,
-      name: currentUser.name,
-      avatar: currentUser.avatar,
-    },
-  };
+//   const newComment = {
+//     text: commentText,
+//     timestamp: new Date().toISOString(),
+//     user: {
+//       id: currentUser.id,
+//       name: currentUser.name,
+//       avatar: currentUser.avatar,
+//     },
+//   };
+
+const newComment = {
+  text: commentText.trim(),
+  timestamp: new Date().toISOString(),
+  user: {
+    id: currentUser.id,
+    name: currentUser.name,
+    avatar: currentUser.avatar
+  }
+};
 
   // 🔥 Save to Firestore
   await addCommentToPost(post.id, newComment);
