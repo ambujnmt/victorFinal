@@ -176,79 +176,79 @@ export const generateCoachInsight = async (user: User, recentLogs: WorkoutLog[])
     }
 };
 
-export const generateAssessmentFeedback = async (user: User, scores: { [key: string]: number }): Promise<string> => {
-    const ai = getAiInstance();
-    const lang = user.language === 'German' ? 'German' : 'English';
-    const prompt = `
-        You are Pastor Victor at HEY CHURCH. Write a personal, prophetic, and deeply inspiring Visionary Analysis for ${user.name} based on their Faith Check scores (0-10 avg):
-        ${JSON.stringify(scores)}
+// export const generateAssessmentFeedback = async (user: User, scores: { [key: string]: number }): Promise<string> => {
+//     const ai = getAiInstance();
+//     const lang = user.language === 'German' ? 'German' : 'English';
+//     const prompt = `
+//         You are Pastor Victor at HEY CHURCH. Write a personal, prophetic, and deeply inspiring Visionary Analysis for ${user.name} based on their Faith Check scores (0-10 avg):
+//         ${JSON.stringify(scores)}
 
-        Language: Please provide your analysis in ${lang}.
+//         Language: Please provide your analysis in ${lang}.
 
-        Categories & Context: 
-        1. Daily Walk with God (Roots, Grace). Score: ${scores.daily_walk}
-        2. Deep Relationships (Community, Honesty). Score: ${scores.relationships}
-        3. Make God Known (Mission, VIPs). Score: ${scores.mission}
-        4. Serve Others (Sacrifice, Gifts). Score: ${scores.serve}
-        5. Generosity (Kingdom-First Lifestyle). Score: ${scores.generosity}
+//         Categories & Context: 
+//         1. Daily Walk with God (Roots, Grace). Score: ${scores.daily_walk}
+//         2. Deep Relationships (Community, Honesty). Score: ${scores.relationships}
+//         3. Make God Known (Mission, VIPs). Score: ${scores.mission}
+//         4. Serve Others (Sacrifice, Gifts). Score: ${scores.serve}
+//         5. Generosity (Kingdom-First Lifestyle). Score: ${scores.generosity}
 
-        Requirements for your Visionary Analysis:
-        - Address them directly: "My dear ${user.name},"
-        - 1. INSPIRATIONAL INSIGHT: A warm opening interpreting their overall spiritual map as a unique landscape.
-        - 2. DIVINE STRENGTH: Identify their highest score. Explain how this specific gift is vital for our city and church.
-        - 3. THE THRESHOLD: Identify the lowest score. Explain that this is where the next level of their spiritual authority lies. Provide deep encouragement for their struggle in this area.
-        - 4. PRACTICAL NEXT STEPS: Provide 2 specific, motivating action points for this week.
-        - 5. THE 6-MONTH DREAM: Describe the vision of where they could be in 6 months if they lean into this area of growth.
+//         Requirements for your Visionary Analysis:
+//         - Address them directly: "My dear ${user.name},"
+//         - 1. INSPIRATIONAL INSIGHT: A warm opening interpreting their overall spiritual map as a unique landscape.
+//         - 2. DIVINE STRENGTH: Identify their highest score. Explain how this specific gift is vital for our city and church.
+//         - 3. THE THRESHOLD: Identify the lowest score. Explain that this is where the next level of their spiritual authority lies. Provide deep encouragement for their struggle in this area.
+//         - 4. PRACTICAL NEXT STEPS: Provide 2 specific, motivating action points for this week.
+//         - 5. THE 6-MONTH DREAM: Describe the vision of where they could be in 6 months if they lean into this area of growth.
         
-        TONE: Inspiring, direct, and full of Grace and truth. Be prophetic and authoritative yet warm.
-        LENGTH: Strictly between 150 and 200 words.
-        FORMAT: Use standard sentence case (NO ALL CAPS). Use bold Markdown for key truths.
-        SIGNATURE: End with: "Your city is waiting for you, Pastor Victor."
-    `;
+//         TONE: Inspiring, direct, and full of Grace and truth. Be prophetic and authoritative yet warm.
+//         LENGTH: Strictly between 150 and 200 words.
+//         FORMAT: Use standard sentence case (NO ALL CAPS). Use bold Markdown for key truths.
+//         SIGNATURE: End with: "Your city is waiting for you, Pastor Victor."
+//     `;
 
-    try {
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: prompt,
-        });
-        const text = response.text;
-        if (!text) throw new Error("Empty response from Gemini");
-        return text;
-    } catch (error: any) {
-        console.error("Gemini Assessment Feedback Error:", error);
-        throw new Error("Pastor Victor's assistant is busy right now. Please stand in faith and try again.");
-    }
-};
-
-
-// export const generateAssessmentFeedback = async (user: any, averages: any) => {
-//   const prompt = `
-// You are Pastor Victor's spiritual assistant.
-
-// User Name: ${user.name}
-
-// Assessment Results:
-// Spiritual Life: ${averages.spiritual}
-// Prayer Life: ${averages.prayer}
-// Leadership: ${averages.leadership}
-
-// Give encouraging, faith-filled feedback.
-// Keep it pastoral and uplifting.
-// `;
-
-//   const response = await fetch("http://localhost:3000/generate", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ prompt }),
-//   });
-
-//   if (!response.ok) {
-//     throw new Error("Assistant unavailable");
-//   }
-
-//   const data = await response.json();
-//   return data.text;
+//     try {
+//         const response = await ai.models.generateContent({
+//             model: 'gemini-3-pro-preview',
+//             contents: prompt,
+//         });
+//         const text = response.text;
+//         if (!text) throw new Error("Empty response from Gemini");
+//         return text;
+//     } catch (error: any) {
+//         console.error("Gemini Assessment Feedback Error:", error);
+//         throw new Error("Pastor Victor's assistant is busy right now. Please stand in faith and try again.");
+//     }
 // };
+
+
+export const generateAssessmentFeedback = async (user: any, averages: any) => {
+  const prompt = `
+You are Pastor Victor's spiritual assistant.
+
+User Name: ${user.name}
+
+Assessment Results:
+Spiritual Life: ${averages.spiritual}
+Prayer Life: ${averages.prayer}
+Leadership: ${averages.leadership}
+
+Give encouraging, faith-filled feedback.
+Keep it pastoral and uplifting.
+`;
+
+  const response = await fetch("http://localhost:3000/generate", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ prompt }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Assistant unavailable");
+  }
+
+  const data = await response.json();
+  return data.text;
+};
 
