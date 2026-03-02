@@ -19,7 +19,6 @@ const getAiInstance = () => {
     return new GoogleGenAI({ apiKey });
 };
 
-
 export const generateWorkoutPlan = async (anamnese: {
     goal: string;
     experience: string;
